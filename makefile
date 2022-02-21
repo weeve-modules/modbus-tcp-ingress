@@ -1,5 +1,5 @@
 SHELL := /bin/bash
-MODULE=weevenetwork/python-ingress-boilerplate
+MODULE=weevenetwork/modbus-tcp-ingress
 create_image:
 	docker build -t ${MODULE} . -f image/Dockerfile
 .phony: create_image
@@ -25,6 +25,6 @@ install_local:
 .phony: install_local
 
 run_local:
-	python image/src/main.py
+	python3 image/src/main.py
 .phony: run_local
 
