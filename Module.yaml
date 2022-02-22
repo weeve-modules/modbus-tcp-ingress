@@ -1,7 +1,7 @@
 version: 1.0.0
 name: ModbusTCP Ingress
 description: Module ingressing data from Modbus TCP server
-icon: https://icons-020-demo.s3.eu-central-1.amazonaws.com/Python.png
+icon: https://icons-020-demo.s3.eu-central-1.amazonaws.com/mi_modbustcp_Input.png
 type: input
 tags:
   - ModbusTCP
@@ -19,7 +19,7 @@ environments:
   - key: SERVER_HOST_ADDRESS
     description: Modbus TCP host server IP
     value: ''
-    default: 127.0.0.1
+    default: server
     type: string
     name: Server Host Address
   - key: SERVER_HOST_PORT
@@ -70,9 +70,9 @@ environments:
       - d
     name: Interval Unit
   - key: OUTPUT_LABEL
-    description: The out label at which read data is dispatched
+    description: The output label at which read data is dispatched
     value: ''
-    default: differentialTemperature
+    default: registers
     type: string
     name: Output Label
 commands: []
