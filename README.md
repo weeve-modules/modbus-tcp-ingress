@@ -4,7 +4,7 @@
 |              |                                                                                             |
 | ------------ | ------------------------------------------------------------------------------------------- |
 | name         | ModbusTCP Ingress                                                                           |
-| version      | v1.0.0                                                                                      |
+| version      | v0.0.1                                                                                      |
 | docker image | [weevenetwork/modbus-tcp-ingress](https://hub.docker.com/r/weevenetwork/modbus-tcp-ingress) |
 | tags         | Python, Flask, Docker, Weeve, ModbusTCP, Ingress                                            |
 | authors      | Jakub Grzelak                                                                               |
