@@ -1,0 +1,12 @@
+version: "3.0"
+services:
+  boilerplate:
+    build:
+      context: ../
+      dockerfile: docker/Dockerfile
+    environment:
+      MODULE_NAME: "boilerplate"
+      MODULE_TYPE: "Input"
+      EGRESS_URLS: "https://testdockercompose.free.beeceptor.com"
+    ports:
+      - 80:80
