@@ -1,12 +1,19 @@
 version: "3.0"
 services:
-  boilerplate:
+  modbus-tcp-ingress:
     build:
       context: ../
       dockerfile: docker/Dockerfile
     environment:
-      MODULE_NAME: "boilerplate"
-      MODULE_TYPE: "Input"
-      EGRESS_URLS: "https://testdockercompose.free.beeceptor.com"
+      MODULE_NAME: modbus-tcp-ingress
+      MODULE_TYPE: Input
+      EGRESS_URLS: https://testdockercompose.free.beeceptor.com
+      SERVER_HOST_ADDRESS: 127.0.0.1
+      SERVER_HOST_PORT: 12345
+      FUNCTION: holding_registers
+      START_ADDRESS: 0
+      LENGTH: 1
+      INTERVAL_PERIOD: 5
+      INTERVAL_UNIT: s
     ports:
-      - 80:80
+      - 5000:80

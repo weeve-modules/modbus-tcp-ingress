@@ -1,47 +1,81 @@
-displayName: 'Module Boilerplate'       # Display name for the module that will be displayed in the UI.
-moduleName: 'module-boilerplate'        # Module name that will be used to reference the module, and uniquely identify the module and their versions.
-description: 'This is module boilerplate description.'       # Module description that will be displayed in the UI.
+displayName: 'ModbusTCP Ingress'       # Display name for the module that will be displayed in the UI.
+moduleName: 'modbus-tcp-ingress'        # Module name that will be used to reference the module, and uniquely identify the module and their versions.
+description: 'Module ingressing data from ModbusTCP server.'       # Module description that will be displayed in the UI.
 versionName: 'v1.0.0'                    # Module version name that will be used to reference the module version, and uniquely identify the module version with a common name.
 isPublic: true                          # Boolean value that indicates if the module is Public or Private.
 categories:                             # Array of category that will be used to group the module in the UI.
-  - 'CATEGORY_1'
-  - 'CATEGORY_2'
+  - 'Ingress'
 type: 'Input'      # Module type (Input, Processing, Output) that will be used to group the module in the UI.
 image:
-  name: 'weevenetwork/module-boilerplate'     # Image name from the docker registry.
-  tag: 'latest'                               # Image tag from the docker registry.
-  homepage: 'https://hub.docker.com/weevenetwork/module-boilerplate'      # Image homepage from the docker registry.
-repository: 'https://github.com/weeve-modules/python-ingress-module-boilerplate'     # Repository URL to source code.
+  name: 'weevenetwork/modbus-tcp-ingress'     # Image name from the docker registry.
+  tag: 'v1.0.0'                               # Image tag from the docker registry.
+  homepage: 'https://hub.docker.com/r/weevenetwork/modbus-tcp-ingress'      # Image homepage from the docker registry.
+repository: 'https://github.com/weeve-modules/modbus-tcp-ingress'     # Repository URL to source code.
 envs:                                   # Array of environment variables that will be used to configure the module. Also used to show related fields on the UI.
-  - name: Setting 1                   # name of the field to be displayed on the UI.
-    key: ENVIRONMENT_1                # key to set in the environment variables.
-    description: Module setting 1     # Description/helper text for the field.
-    value: ''                         # Value to be set in the environment variables.
-    type: 'select'                    # Type of the field. Possible values are: ['text', 'select', 'boolean', 'date', 'time', 'dateTime-local', 'number', 'multiple', 'CSV', 'file']
-    options:                          # Options for the field if it is a select or multiple select. An array of string options
-      - option_A
-      - option_B
-      - option_C
-    dependencies:                     # List of dependencies for the field. This field is only displayed if all the dependencies are met. If
-      - key:                          # key of the dependency
-        value:                        # value of the dependency
-  - name: Setting 2
-    key: ENVIRONMENT_2
-    description: Module setting 2
-    value: ''
+  - name: Server Host Address                   # name of the field to be displayed on the UI.
+    key: SERVER_HOST_ADDRESS                # key to set in the environment variables.
+    description: Modbus TCP host server IP.     # Description/helper text for the field.
+    value: 'server'                         # Value to be set in the environment variables.
+    type: 'text'                    # Type of the field. Possible values are: ['text', 'select', 'boolean', 'date', 'time', 'dateTime-local', 'number', 'multiple', 'CSV', 'file']
+    options: []
+    dependencies: []
+  - name: Server Host Port
+    key: SERVER_HOST_PORT
+    description: Modbus TCP host server port.
+    value: 8080
     type: 'number'
-    dependencies:
-      - key: ENVIRONMENT_1
-        value: option_B
-ports:                                  # Array of ports that will be exposed by the module.
-  - container: 8080                     # Port number from the container.
-    host: 8080                          # Port number to map on the host.
-mounts:
-  - container: '/data'                  # Mount path from the container.
-    host: '/data'                       # Mount path to map on the host.
+    options: []
+    dependencies: []
+  - name: Function
+    key: FUNCTION
+    description: ModbusTCP request function.
+    value: 'holding_registers'
+    type: 'select'
+    options:
+      - coils
+      - discrete_inputs
+      - holding_registers
+      - input_registers
+    dependencies: []
+  - name: Start Address
+    key: START_ADDRESS
+    description: Index of the first register to read data from.
+    value: 0
+    type: 'number'
+    options: []
+    dependencies: []
+  - name: Length
+    key: LENGTH
+    description: Number of consecutive registers to read data from (starting from index of above Start Address).
+    value: 3
+    type: 'number'
+    options: []
+    dependencies: []
+  - name: Interval Period
+    key: INTERVAL_PERIOD
+    description: Data from registers is read every interval period.
+    value: 1000
+    type: 'number'
+    options: []
+    dependencies: []
+  - name: Interval Unit
+    key: INTERVAL_UNIT
+    description: Unit for time interval.
+    value: 'ms'
+    type: 'select'
+    options:
+      - ms
+      - s
+      - m
+      - h
+      - d
+    dependencies: []
+ports: []
+mounts: []
 tags:                                   # Array of tags.
-  - 'Python'
-  - 'Input'
-  - 'Boilerplate'
-  - 'Boilerplate 1.0.0'
-icon: 'https://some.url/to/icon.png'    # Icon URL that will be displayed in the UI.
+  - ModbusTCP
+  - Modbus
+  - TCP
+  - ingress
+  - input
+icon: 'https://icons-020-demo.s3.eu-central-1.amazonaws.com/mi_modbustcp_Input.png'    # Icon URL that will be displayed in the UI.
