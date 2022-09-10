@@ -71,7 +71,11 @@ envs:                                   # Array of environment variables that wi
       - d
     dependencies: []
 ports: []
+envPorts: []
 mounts: []
+envMounts: []
+devices: []
+envDevices: []
 tags:                                   # Array of tags.
   - ModbusTCP
   - Modbus
