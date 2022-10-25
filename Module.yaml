@@ -47,7 +47,7 @@ envs:                                   # Array of environment variables that wi
   - name: Length
     key: LENGTH
     description: Number of consecutive registers to read data from (starting from index of above Start Address).
-    value: 3
+    value: '3'
     type: 'number'
     options: []
     dependencies: []
