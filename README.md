@@ -3,7 +3,7 @@
 |                |                                       |
 | -------------- | ------------------------------------- |
 | Name           | ModbusTCP Ingress                     |
-| Version        | v1.0.0                                |
+| Version        | v1.0.1                                |
 | Dockerhub Link | [weevenetwork/modbus-tcp-ingress](https://hub.docker.com/r/weevenetwork/modbus-tcp-ingress) |
 | authors        | Jakub Grzelak                         |
 
